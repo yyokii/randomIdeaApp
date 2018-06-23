@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Time from '../containers/Time'
+import TimerController from '../containers/TimerController'
 
 class App extends Component {
 
@@ -26,6 +28,12 @@ class App extends Component {
         </p>
         <div>{this.state.words.firstWord}</div>
         <div>{this.state.words.secondWord}</div>
+
+        <div className="container">
+        <Time />
+        <TimerController />
+        </div>
+
         <div></div>
       </div>
     );
