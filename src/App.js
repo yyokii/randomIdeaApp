@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import EurekaModal from './components/EurekaModal';
+import WordPaper from './components/WordPaper';
+import AppBar from './components/AppBar';
+import { wordList } from './WordList';
 
-const words = ['朝', 'プログラミング', '革命', 'カーテン', 'ボール'];
+var words = wordList;
+var intervalId = 0;
 
 class App extends Component {
 
@@ -18,47 +22,66 @@ class App extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  onClick(e) {
+  onClick() {
     if (this.state.running) {
-      console.log('ストップ');
-      clearInterval(this.state.intervalId)
+      this.stopTimer();
     }else {
-      console.log('再スタート');
-      const intervalId = setInterval(() => {
-        var firstWord = words[Math.floor(Math.random() * words.length)];
-        var secondWord =  words[Math.floor(Math.random() * words.length)];
-        this.setState({ intervalId, firstWord, secondWord });
-      }, 3000)
+      this.restartTimer();
     }
+  }
 
-    const running = ! this.state.running
-    this.setState({ running })
+  stopTimer() {
+    console.log('ストップ');
+    clearInterval(this.state.intervalId)
+    this.setState({ running:false })
+  }
+
+  restartTimer() {
+    console.log('再スタート');
+    intervalId = setInterval(() => {
+      var firstWord = words[Math.floor(Math.random() * words.length)];
+      var secondWord =  words[Math.floor(Math.random() * words.length)];
+      this.setState({ firstWord, secondWord });
+    }, 3000)
+    this.setState({ intervalId });
+    this.setState({ running:true })
   }
 
   render() {
+    var firstWord = this.state.firstWord;
+    var secondWord = this.state.secondWord;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div>{this.state.firstWord}</div>
-        <div>{this.state.secondWord}</div>
-        <button onClick={this.onClick}>click!</button>
+        <AppBar />
+
+        <WordPaper word={firstWord}/>
+        <WordPaper word={secondWord}/>
+
+        <div className="Eureka-Button">
+          <EurekaModal
+            firstWord={firstWord}
+            secondWord={secondWord}
+            onClickModal={() => this.stopTimer()}
+            onCloseModal={() => this.restartTimer()}
+          />
+        </div>
+        <footer className="Footer">
+          <p>COPYRIGHT &#169; yyokii ALL RIGHTS RESERVED.</p>
+        </footer>
       </div>
     );
   }
 
   componentDidMount() {
     // 描画が成功して、DOMにアクセス可能になる
-    const intervalId = setInterval(() => {
+    intervalId = setInterval(() => {
       var firstWord = words[Math.floor(Math.random() * words.length)];
       var secondWord =  words[Math.floor(Math.random() * words.length)];
-      this.setState({ intervalId, firstWord, secondWord });
+      this.setState({ firstWord, secondWord });
     }, 3000)
-
+    this.setState({ intervalId });
   }
-
 }
 
 export default App;
