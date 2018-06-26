@@ -71,17 +71,18 @@ class EurekaModal extends React.Component {
             <div className="Eureka-Words">
                 {firstWord}　<span role="img" aria-label="cross">✖️</span>　{secondWord}
             </div>
-
-            <TwitterShareButton
-              url={shareUrl}
-              title={title}
-              hashtags={hashtags}
-              className="Demo__some-network__share-button">
-              <TwitterIcon
-                size={32}
-                round
-              />
-            </TwitterShareButton>
+            <div className="Eureka-Tweet">
+              <TwitterShareButton
+                url={shareUrl}
+                title={title}
+                hashtags={hashtags} align="center">
+                <TwitterIcon
+                align="center"
+                  size={32}
+                  round
+                />
+              </TwitterShareButton>
+            </div>
           </div>
         </Modal>
       </div>

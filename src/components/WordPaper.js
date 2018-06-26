@@ -7,7 +7,8 @@ import Zoom from '@material-ui/core/Zoom';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
-    width: `70%`,
+    width: `40%`,
+    height: `auto`,
     margin: `0 auto`,
     paddingTop: 16,
     paddingBottom: 16,

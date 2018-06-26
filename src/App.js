@@ -54,18 +54,21 @@ class App extends Component {
     return (
       <div className="App">
         <AppBar />
-
-        <WordPaper word={firstWord}/>
-        <WordPaper word={secondWord}/>
-
-        <div className="Eureka-Button">
-          <EurekaModal
-            firstWord={firstWord}
-            secondWord={secondWord}
-            onClickModal={() => this.stopTimer()}
-            onCloseModal={() => this.restartTimer()}
-          />
+        <div className="App-mainContent">
+          <div>
+            <WordPaper word={firstWord}/>
+            <WordPaper word={secondWord}/>
+          </div>
+          <div className="Eureka-Button">
+            <EurekaModal
+              firstWord={firstWord}
+              secondWord={secondWord}
+              onClickModal={() => this.stopTimer()}
+              onCloseModal={() => this.restartTimer()}
+            />
+          </div>
         </div>
+
         <footer className="Footer">
           <p>COPYRIGHT &#169; yyokii ALL RIGHTS RESERVED.</p>
         </footer>
