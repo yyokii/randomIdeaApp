@@ -2,9 +2,10 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App-topImage {
+  margin-top: 30px;
+  width: 50%;
+  height: auto;
 }
 
 .App-title {
@@ -13,6 +14,9 @@
 
 .App-intro {
   font-size: large;
+  color: #AAAAAA;
+  margin-top: 10px;
+  white-space: pre-wrap;
 }
 
 .App-mainContent {
@@ -20,7 +24,7 @@
 }
 
 .Eureka-Button {
-  margin-top:30px;
+  margin-top:50px;
 }
 
 .Eureka-Words {
@@ -31,9 +35,10 @@
 }
 
 .Eureka-Tweet {
-  display: inline-block;
+  width: 35px;
+  margin-right: auto;
+  margin-left: auto;
   margin-top: 10px;
-  text-align: center;
   cursor: pointer;
 }
 

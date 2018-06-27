@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Zoom from '@material-ui/core/Zoom';
-
 const styles = theme => ({
   root: theme.mixins.gutters({
     width: `40%`,
@@ -12,7 +11,8 @@ const styles = theme => ({
     margin: `0 auto`,
     paddingTop: 16,
     paddingBottom: 16,
-    marginTop: theme.spacing.unit * 3,
+    marginTop: 20,
+    marginBottom: 20,
   }),
 });
 
@@ -20,7 +20,7 @@ function PaperSheet(props) {
   const { classes, word } = props;
   return (
     <div>
-      <Zoom in={true} timeout={{ enter: 1000, exit: 0,}}>
+      <Zoom in={true} timeout={{ enter: 2000, exit: 0,}}>
         <Paper className={classes.root} elevation={4}>
           <Typography variant="headline" component="h3">
             {word}

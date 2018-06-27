@@ -21,7 +21,7 @@ function getModalStyle() {
 const styles = theme => ({
   paper: {
     position: 'absolute',
-    width: theme.spacing.unit * 50,
+    width: '70%',
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
@@ -49,7 +49,7 @@ class EurekaModal extends React.Component {
   render() {
     const { classes, firstWord, secondWord } = this.props;
     // shareボタン
-    const shareUrl = 'http://github.com';
+    const shareUrl = 'https://random-idea-app.herokuapp.com/';
     var title = 'Vivitでアイデアを思いつきました⚡️\n'
                 + `「 ` + firstWord + ` ✖️ ` + secondWord + ' 」\n';
     const hashtags = ['Vivit','アイデア','思いついた','起業しろ'];
@@ -75,7 +75,7 @@ class EurekaModal extends React.Component {
               <TwitterShareButton
                 url={shareUrl}
                 title={title}
-                hashtags={hashtags} align="center">
+                hashtags={hashtags}>
                 <TwitterIcon
                 align="center"
                   size={32}

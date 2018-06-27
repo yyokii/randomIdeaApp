@@ -3,6 +3,9 @@ import './App.css';
 import EurekaModal from './components/EurekaModal';
 import WordPaper from './components/WordPaper';
 import AppBar from './components/AppBar';
+import Slide from '@material-ui/core/Slide';
+import Fade from '@material-ui/core/Fade';
+import topImage from './vivit.png'
 import { wordList } from './WordList';
 
 var words = wordList;
@@ -54,9 +57,22 @@ class App extends Component {
     return (
       <div className="App">
         <AppBar />
+        <Slide direction="down" in={true} timeout={{ enter: 2000, exit: 0,}}>
+          <div>
+            <img src={topImage} className='App-topImage' alt="topImage"/>
+          </div>
+        </Slide>
+        <Fade in={true} timeout={{ enter: 2000, exit: 0,}}>
+          <div className="App-intro">
+            いいアイデアは "ビビット" くる
+          </div>
+        </Fade>
         <div className="App-mainContent">
           <div>
             <WordPaper word={firstWord}/>
+            <div>
+              <span role="img" aria-label="cross">✖️</span>
+            </div>
             <WordPaper word={secondWord}/>
           </div>
           <div className="Eureka-Button">
